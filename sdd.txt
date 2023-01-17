@@ -1,0 +1,11 @@
+package package1;
+import java.util.StringTokenizer;
+
+public class tokenizer {
+	public static void main(String[] args) {
+		StringTokenizer s=new StringTokenizer("Java is a beautiful language"," ");
+		while(s.hasMoreTokens()) {
+			System.out.println(s.nextToken());
+		}
+	}
+}
