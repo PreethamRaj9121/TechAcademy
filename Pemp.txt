@@ -1,0 +1,41 @@
+package package1;
+
+public class PermanentEmployee extends Employee{
+	private double monthlySalary;
+	private double pf;
+	private double tax;
+	
+	
+	public PermanentEmployee(String employeeId,String employeeName,String dept,double monthlySalary){
+		super(employeeId,employeeName,dept);
+		this.monthlySalary=monthlySalary;
+		this.pf=0.15*monthlySalary;
+		this.tax=0;
+		
+	}
+	
+	public double getMonthlySalary() {
+		return monthlySalary;
+	}
+	public void setMonthlySalary(double monthlySalary) {
+		this.monthlySalary=monthlySalary;
+	}
+	
+	public double getPf() {
+		return pf;
+	}
+	
+	public double getTax() {
+		return tax;
+	}
+	
+	public void calculateTax() {
+		this.tax=0.1*12*monthlySalary;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%-15s %-15s %-15s %-15s",
+				getEmployeeId(),getEmployeeName(),getDept(),tax);
+	}
+}

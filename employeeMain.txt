@@ -1,0 +1,19 @@
+package package1;
+import java.util.*;
+
+public class main {
+	public static void main(String[] args) {
+		
+		Employee emp;
+		String id="P1001";
+		
+		if(id.charAt(0)=='P') {
+			emp=new PermanentEmployee(id,"Rajkumar","Finance",75000.00);
+		}
+		else {
+			emp=new ContractEmployee(id,"Pervez","Sales",5,35000);
+		}
+		emp.calculateTax();
+		System.out.println(emp);
+	}
+}

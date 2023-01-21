@@ -1,0 +1,51 @@
+package package1;
+
+public class Employee implements Comparable<Employee>{
+	private String employeeId;
+	private String employeeName;
+	private String dept;
+	
+	public Employee (String employeeId,String employeeName,String dept) {
+		this.employeeId=employeeId;
+		this.employeeName=employeeName;
+		this.dept=dept;
+	}
+	
+	// Getter Functions
+	public String getEmployeeName() {
+		return employeeName;
+	}
+	public String getDept() {
+		return dept;
+	}
+	public String getEmployeeId() {
+		return employeeId;
+	}
+	
+	// Setter Functions
+	public void setEmployeeId(String EmployeeId) {
+		this.employeeId=employeeId;
+	}
+	public void setEmployeeName(String EmployeeName) {
+		this.employeeName=employeeName;
+	}
+	public void setDept(String dept) {
+		this.dept=dept;
+	}
+	
+	public void calculateTax() {
+		
+	}
+	
+	@Override
+	public int compareTo(Employee other) {
+		return this.employeeId.compareTo(other.employeeId);
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("-10s %-20s %-15s",employeeId,employeeName,dept);
+	}
+	
+	
+}
