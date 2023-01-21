@@ -1,0 +1,45 @@
+class ContractEmployee extends Employee {
+    private int contractPeriod;
+    private double contractAmount;
+    private double tax;
+
+    public ContractEmployee(String employeeId, String employeeName, String department, int contractPeriod, double contractAmount) {
+        super(employeeId, employeeName, department);
+        this.contractPeriod = contractPeriod;
+        this.contractAmount = contractAmount;
+    }
+
+    public int getContractPeriod() {
+        return contractPeriod;
+    }
+
+    public void setContractPeriod(int contractPeriod) {
+        this.contractPeriod = contractPeriod;
+    }
+
+    public double getContractAmount() {
+        return contractAmount;
+    }
+
+    public void setContractAmount(double contractAmount) {
+        this.contractAmount = contractAmount;
+    }
+
+    public double getTax() {
+        return tax;
+    }
+
+    public void setTax(double tax) {
+        this.tax = tax;
+    }
+
+    @Override
+    public void calculateTax() {
+        this.tax = 0.10 * this.contractAmount;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%-15s %-15s", employeeId, tax);
+    }
+}
