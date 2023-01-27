@@ -1,0 +1,36 @@
+package OopsPackage;
+
+import java.util.*;
+
+import OopsPackage.Product.essentialCommodityException;
+import OopsPackage.Product.gradeMismatchException;
+import OopsPackage.Product.priceException;
+
+public class MainClass {
+	
+	public static void main(String[] args) {
+		
+		Set<Product> p= new HashSet<>();
+		
+		try {
+			p.add(new Product(1001,"Salt",22.00,25.00,"E"));
+			p.add(new Product(1005,"Biryani",45.00,55.00,"N"));
+			p.add(new Product(1003,"Masala",28,32,"E"));
+			p.add(new Product(1004,"Chicken",43,54.00,"P"));
+			p.add(new Product(1002,"Onion",32,24,"N"));
+			
+		}
+		
+		catch (priceException | essentialCommodityException | gradeMismatchException e){
+			System.out.println();
+		}
+		
+		finally {
+			
+		}
+		
+		for(Product product : p) {
+			System.out.println(product);
+		}
+	}	
+}

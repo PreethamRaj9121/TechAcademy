@@ -1,0 +1,97 @@
+package OopsPackage;
+
+class Product {
+	
+	private int id;
+	private String name;
+	private double purchasedPrice;
+	private double salesPrice;
+	private String grade;
+	
+	public Product(int id,String name,double purchasedPrice,double salesPrice,
+			String grade) throws priceException , essentialCommodityException , gradeMismatchException {
+		this.id=id;
+		this.name=name;
+		this.purchasedPrice=purchasedPrice;
+		this.grade=grade;
+        
+		if(salesPrice<=purchasedPrice) {
+			throw new priceException("Sales Price must be more than purchased price.");
+		}
+		if(grade.equals("E")) {
+			if((salesPrice-purchasedPrice)/purchasedPrice>0.25) {
+				throw new essentialCommodityException("Sales price for essential commodity cannot be more than 25%");
+			}
+		}
+		else if(!grade.equals("N")){
+			throw new gradeMismatchException("Grade must be either 'N' or 'E' ");
+		}
+		this.salesPrice=salesPrice;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id=id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name=name;
+	}
+	
+	public double getPP() {
+		return purchasedPrice;
+	}
+	public void setPP(double purchasedPrice) {
+		this.purchasedPrice=purchasedPrice;
+	}
+	
+	public double getSP() {
+		return salesPrice;
+	}
+	public void setSP(double salesPrice) {
+		this.salesPrice=salesPrice;
+	}
+    
+	
+//	@Override 
+	public int hashCode() {
+		return id;
+	}
+	
+	@Override 
+	public boolean equals(Object obj) {
+		if(this==obj) return true;
+		if(obj==null || getClass()!=obj.getClass()) return false;
+		Product product=(Product) obj;
+		return id==product.id;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%-5s %-20s %-10s %-10s %-5s",id,name,purchasedPrice,salesPrice,grade);
+	}
+	
+	class priceException extends Exception {
+		public priceException(String message) {
+			super(message);
+		}
+	}
+	
+	class essentialCommodityException extends Exception {
+		public essentialCommodityException(String message){
+			super(message);
+		}
+	}
+	
+	class gradeMismatchException extends Exception{
+		public gradeMismatchException(String message) {
+			super(message);
+		}
+	}
+	
+	
+}
