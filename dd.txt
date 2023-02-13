@@ -1,0 +1,22 @@
+INSERT INTO Employees (EmpID, Emp_FirstName, Emp_LastName, Emp_City, DOJ, Salary, DID, BID)
+VALUES 
+(1, 'John', 'Doe', 'New York', '2015-01-01', 55000, 1, 1),
+(2, 'Jane', 'Doe', 'San Francisco', '2015-02-01', 60000, 2, 2),
+(3, 'Jack', 'Smith', 'Los Angeles', '2015-03-01', 65000, 3, 3),
+(4, 'Jim', 'Brown', 'Chicago', '2015-04-01', 70000, 4, 4),
+(5, 'Jill', 'Johnson', 'Houston', '2015-05-01', 75000, 5, 5),
+(6, 'Mark', 'Williams', 'Philadelphia', '2016-01-01', 55000, 1, 1),
+(7, 'Maggie', 'Jones', 'Phoenix', '2016-02-01', 60000, 2, 2),
+(8, 'Matt', 'Davis', 'San Antonio', '2016-03-01', 65000, 3, 3),
+(9, 'Mike', 'Garcia', 'San Diego', '2016-04-01', 70000, 4, 4),
+(10, 'Monica', 'Rodriguez', 'Dallas', '2016-05-01', 75000, 5, 5),
+(11, 'Nancy', 'Martinez', 'San Jose', '2017-01-01', 55000, 1, 1),
+(12, 'Nick', 'Anderson', 'Austin', '2017-02-01', 60000, 2, 2),
+(13, 'Olivia', 'Taylor', 'Jacksonville', '2017-03-01', 65000, 3, 3),
+(14, 'Pam', 'Thomas', 'Indianapolis', '2017-04-01', 70000, 4, 4),
+(15, 'Paul', 'Moore', 'Columbus', '2017-05-01', 75000, 5, 5),
+(16, 'Peter', 'Jackson', 'Fort Worth', '2018-01-01', 55000, 1, 1),
+(17, 'Phil', 'White', 'Charlotte', '2018-02-01', 60000, 2, 2),
+(18, 'Randy', 'Harris', 'Detroit', '2018-03-01', 65000, 3, 3),
+(19, 'Steve', 'Martin', 'El Paso', '2018-04-01', 70000, 4, 4),
+(20, 'Tom', 'Thompson', 'Seattle', '2018-05-01', 75000, 5, 5);
