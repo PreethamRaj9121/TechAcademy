@@ -1,18 +1,19 @@
-
 #!/bin/bash
 
-# Ask user for the file name to rename
-echo "Enter the name of the file to rename: "
-read file
+# Rename all files to lower case
+for file in *
+do
+    if [ -f "$file" ]; then
+        newname=$(echo "$file" | tr '[:upper:]' '[:lower:]')
+        mv "$file" "$newname"
+    fi
+done
 
-# Check if the given path is a regular file
-if [ -f "$file" ]; then
-    # Rename the file to lower case
-    newname=$(echo "$file" | tr '[:upper:]' '[:lower:]')
-    mv "$file" "$newname"
-    echo "File renamed to $newname"
-else
-    echo "Error: $file is not a regular file."
-fi
-
-
+# Rename all directories to upper case
+for dir in */
+do
+    if [ -d "$dir" ]; then
+        newname=$(echo "$dir" | tr '[:lower:]' '[:upper:]')
+        mv "$dir" "$newname"
+    fi
+done
