@@ -1,19 +1,45 @@
 #!/bin/bash
 
-# Rename all files to lower case
+echo "This script renames all files in the current directory to lowercase and all directories to uppercase."
+echo "Digits and other symbols will remain the same."
+echo
+
+# Rename files to lower case
 for file in *
 do
     if [ -f "$file" ]; then
         newname=$(echo "$file" | tr '[:upper:]' '[:lower:]')
-        mv "$file" "$newname"
+        mv -i "$file" "$newname"
     fi
 done
 
-# Rename all directories to upper case
+# Rename directories to upper case
 for dir in */
 do
     if [ -d "$dir" ]; then
         newname=$(echo "$dir" | tr '[:lower:]' '[:upper:]')
-        mv "$dir" "$newname"
+        mv -i "$dir" "$newname"
     fi
 done
+
+echo "All files/directories have been renamed."
+echo
+
+# Prompt user for string input
+echo "Enter any string in Lower Case:"
+read input
+
+# Convert input to upper case
+result=$(echo "$input" | tr '[:lower:]' '[:upper:]')
+
+echo "Result: $result"
+echo
+
+# Prompt user for string input
+echo "Enter any string in Upper Case:"
+read input
+
+# Convert input to lower case
+result=$(echo "$input" | tr '[:upper:]' '[:lower:]')
+
+echo "Result: $result"
