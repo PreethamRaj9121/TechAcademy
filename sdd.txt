@@ -1,5 +1,47 @@
 #!/bin/bash
 
+# prompt user to enter filename/directory name
+echo "Enter the file/directory name: "
+read filename
+
+# prompt user to enter upper or lower case preference
+echo "Enter upper or lower case preference (u/l): "
+read casepref
+
+# check if the file/directory exists
+if [ -e $filename ]
+then
+  # check if the user selected upper case preference
+  if [ $casepref == "u" ]
+  then
+    # rename file/directory to upper case
+    mv $filename $(echo $filename | tr '[:lower:]' '[:upper:]')
+    echo "File/directory renamed to upper case."
+  
+  # check if the user selected lower case preference
+  elif [ $casepref == "l" ]
+  then
+    # rename file/directory to lower case
+    mv $filename $(echo $filename | tr '[:upper:]' '[:lower:]')
+    echo "File/directory renamed to lower case."
+  
+  # invalid preference selected
+  else
+    echo "Invalid preference selected. Please enter u or l."
+  fi
+
+# file/directory not found
+else
+  echo "File/directory not found."
+fi
+
+
+
+
+
+
+#!/bin/bash
+
 echo "This script renames all files in the current directory to lowercase and all directories to uppercase."
 echo "Digits and other symbols will remain the same."
 echo
@@ -43,3 +85,11 @@ read input
 result=$(echo "$input" | tr '[:upper:]' '[:lower:]')
 
 echo "Result: $result"
+
+
+
+
+
+
+
+
