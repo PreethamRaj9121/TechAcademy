@@ -1,15 +1,18 @@
 
-echo "Enter a number: "
-read num
+#!/bin/bash
 
-# Create the pattern
-for ((i=1;i<=num;i++))
-do
-    for ((j=1;j<=i;j++))
-    do
-        echo -n "$j "
-    done
-done
+# Ask user for the file name to rename
+echo "Enter the name of the file to rename: "
+read file
 
-echo ""
+# Check if the given path is a regular file
+if [ -f "$file" ]; then
+    # Rename the file to lower case
+    newname=$(echo "$file" | tr '[:upper:]' '[:lower:]')
+    mv "$file" "$newname"
+    echo "File renamed to $newname"
+else
+    echo "Error: $file is not a regular file."
+fi
+
 
