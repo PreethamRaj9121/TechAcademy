@@ -1,11 +1,15 @@
-package package1;
-import java.util.StringTokenizer;
 
-public class tokenizer {
-	public static void main(String[] args) {
-		StringTokenizer s=new StringTokenizer("Java is a beautiful language"," ");
-		while(s.hasMoreTokens()) {
-			System.out.println(s.nextToken());
-		}
-	}
-}
+echo "Enter a number: "
+read num
+
+# Create the pattern
+for ((i=1;i<=num;i++))
+do
+    for ((j=1;j<=i;j++))
+    do
+        echo -n "$j "
+    done
+done
+
+echo ""
+
